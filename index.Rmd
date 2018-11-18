@@ -1,46 +1,66 @@
 ---
-title: "I have the best titles"
-author: Your name here
-subtitle: Subtitle here if desired
+title: "Establishing Floodzones and Potential Constructed Wetlands for Wastewater Management"
+author: Kaitlin Walsh
+subtitle: A study of Seneca Nation
 ---
 
 # Introduction
-My really awesome and complete introduction will go here.  
+Cattauragus Creek floods causing social, financial, and environmental issues; to mitigate this, first the areas which are most likely to flood must be found.
 
-> I know words.  I have the best words.  ~ Donald Trump
+![](https://gardenwarriorsgoodseeds.files.wordpress.com/2015/01/mapphoto.jpg)
+
+This is the study area: Cattauragus Creek.  It flows into Lake Erie and affects many stakeholders along the Creek Coast, and the coast of Lake Erie.  Stakeholders include the Seneca Nation, the Army Corps of Engineers, citizens and business owners of Sunset Bay, and local, State, and Federal Government.
 
 # Materials and methods
 
-Narrative and most code will go here.  Describe what you are doing and show how to do it (with code).
-
-You can do bullets like this:
-
-* The first most important thing
-* The second most important thing
-* The third most important thing
-
-You can do numbers like this:
-
-1. The first most important thing
-2. The second most important thing
-3. The third most important thing
-
-See [http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/) for all the amazing things you can do.
+* Shapefile of Seneca Nation
+* Filter elevation shapefiles
+* Filtering elevations
+* Filtering for precipitation
+* Establishing Flood Zones in Seneca Nation
+* Filtering by soil type
+* Filtering by vegetation type
+* Filtering by temperature/ date ( if ground is frozen, can't establish constructed wastelands)
+* Creating possible constructed wetland areas by selection/joining of filtered topics 
 
 
-Here's my first code chunk.
-```{r}
-1+2
-```
 
-Load any required packages in a code chunk (you may need to install some packages):
 
 ```{r, message=F, warning=F}
-library(dplyr)
+library(raster)
+library(sp)
+library(rgdal)
 library(ggplot2)
+library(ggmap)
+library(dplyr)
+library(tidyr)
 library(maps)
-#library(spocc)
+#library(scales)
+library(sf)
+#library(rnoaa)
+#install.packages("climdex.pcic")
+#install.packages("zoo")
+#install.packages("reshape2")
+#install.packages("leaflet")
+#library(leaflet)
+
+#install.packages("DT")
+#install.packages("widgetframe")
+#library(DT)
+#library(widgetframe)
+#library(climdex.pcic)
+#library(zoo)
+#library(reshape2)
+#library(broom)
+#install.packages("FedData")
+library(FedData)
+
+
 knitr::opts_chunk$set(cache=TRUE)  # cache the results for quick compiling
+
+SNI <- st_read("Data/CattaraugusSNI.shp")
+#SNI.trans <- st_transform(SNI, st_crs(4326))
+plot(SNI, max.plot = 10)
 ```
 
 
