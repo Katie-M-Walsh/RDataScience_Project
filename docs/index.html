@@ -340,23 +340,23 @@ library(ggmap)
 library(dplyr)
 library(tidyr)
 library(maps)
-#library(scales)
+library(scales)
 library(sf)
-#library(rnoaa)
+library(rnoaa)
 #install.packages(&quot;climdex.pcic&quot;)
 #install.packages(&quot;zoo&quot;)
 #install.packages(&quot;reshape2&quot;)
 #install.packages(&quot;leaflet&quot;)
-#library(leaflet)
+library(leaflet)
 
 #install.packages(&quot;DT&quot;)
 #install.packages(&quot;widgetframe&quot;)
-#library(DT)
-#library(widgetframe)
-#library(climdex.pcic)
-#library(zoo)
-#library(reshape2)
-#library(broom)
+library(DT)
+library(widgetframe)
+library(climdex.pcic)
+library(zoo)
+library(reshape2)
+library(broom)
 #install.packages(&quot;FedData&quot;)
 library(FedData)
 
@@ -374,6 +374,33 @@ SNI &lt;- st_read(&quot;Data/CattaraugusSNI.shp&quot;)</code></pre>
 <pre class="r"><code>#SNI.trans &lt;- st_transform(SNI, st_crs(4326))
 plot(SNI, max.plot = 10)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>library(DataScienceData)
+lulcf=system.file(&quot;extdata&quot;, 
+                &quot;appeears/MCD12Q1.051_aid0001.nc&quot;, 
+                package = &quot;DataScienceData&quot;)
+lulcf</code></pre>
+<pre><code>## [1] &quot;C:/Users/ktwal/OneDrive/Documents/R/win-library/3.5/DataScienceData/extdata/appeears/MCD12Q1.051_aid0001.nc&quot;</code></pre>
+<pre class="r"><code>lulc=stack(lulcf,varname=&quot;Land_Cover_Type_1&quot;)</code></pre>
+<pre><code>## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute latitude_of_projection_origin is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;
+## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute longitude_of_central_meridian is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;
+## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute longitude_of_projection_origin is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;
+## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute straight_vertical_longitude_from_pole is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;
+## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute false_easting is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;
+## [1] &quot;&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute false_northing is an 8-byte value, but R&quot;
+## [1] &quot;does not support this data type. I am returning a double precision&quot;
+## [1] &quot;floating point, but you must be aware that this could lose precision!&quot;</code></pre>
+<pre class="r"><code>plot(lulc)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code># Results</code></pre>
 </div>
 <div id="conclusions" class="section level1">
